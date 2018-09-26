@@ -1,4 +1,4 @@
-﻿namespace Order.Common.DTO
+﻿namespace ApiClients.Order.Common.DTO
 {
     public enum EXOrderStatus
     {

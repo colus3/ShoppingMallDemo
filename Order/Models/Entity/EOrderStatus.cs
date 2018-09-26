@@ -1,4 +1,4 @@
-﻿namespace Order.Models.Entity
+﻿namespace Services.Order.Models.Entity
 {
     public enum EOrderStatus
     {

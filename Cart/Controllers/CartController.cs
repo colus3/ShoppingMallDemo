@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace Cart.Controllers
+namespace Services.Cart.Controllers
 {
     public sealed class CartController : Controller
     {

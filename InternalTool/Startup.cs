@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ApiClients.Product.Common;
+using ApiClients.Product.Http;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -31,7 +33,12 @@ namespace InternalTool
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
+            services.AddOptions();
+            services.AddOptions<ProductServiceOptions>("ProductService");
 
+            services.AddHttpClient();
+
+            services.AddTransient<IProductClient, ProductHttpClient>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 

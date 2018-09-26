@@ -1,4 +1,4 @@
-﻿namespace Product.Common.DTO
+﻿namespace ApiClients.Product.Common.DTO
 {
     public sealed class XProduct
     {

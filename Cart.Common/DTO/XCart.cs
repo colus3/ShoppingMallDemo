@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Cart.Common.DTO
+namespace ApiClients.Cart.Common.DTO
 {
     public sealed class XCart
     {

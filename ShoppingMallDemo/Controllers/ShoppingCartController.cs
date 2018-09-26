@@ -12,6 +12,13 @@ namespace ShoppingMallDemo.Controllers
             return Ok();
         }
 
+        [HttpPatch]
+        [Route("")]
+        public IActionResult UpdateCartItemQuantity()
+        {
+            return Ok();
+        }
+
         [HttpPost]
         [Route("")]
         public IActionResult PlaceOrder()

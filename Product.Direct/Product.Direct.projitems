@@ -6,7 +6,7 @@
     <SharedGUID>4313abc5-7682-4fd7-976b-29ebca4fe4d2</SharedGUID>
   </PropertyGroup>
   <PropertyGroup Label="Configuration">
-    <Import_RootNamespace>Product.Direct</Import_RootNamespace>
+    <Import_RootNamespace>ApiClients.Product.Direct</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)ProductDirectClient.cs" />

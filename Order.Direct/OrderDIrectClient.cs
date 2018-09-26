@@ -1,6 +1,6 @@
-﻿using Order.Common;
+﻿using ApiClients.Order.Common;
 
-namespace Order.Direct
+namespace ApiClients.Order.Direct
 {
     public sealed class OrderDirectClient : IOrderClient
     {

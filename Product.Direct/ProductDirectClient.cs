@@ -1,20 +1,28 @@
-﻿using System.Collections.Generic;
+﻿using ApiClients.Product.Common;
+using ApiClients.Product.Common.DTO;
+using Services.Product;
+using System.Collections.Generic;
 using System.Threading.Tasks;
-using Product.Common;
-using Product.Common.DTO;
 
-namespace Product.Direct
+namespace ApiClients.Product.Direct
 {
     public sealed class ProductDirectClient : IProductClient
     {
-        public Task<XProduct> GetProduct(long id)
+        private readonly ProductService mProductService;
+
+        public ProductDirectClient(ProductService productService)
         {
-            throw new System.NotImplementedException();
+            mProductService = productService;
         }
 
-        public Task<List<XProduct>> GetProducts()
+        public async Task<XProduct> GetProductAsync(long id)
         {
-            throw new System.NotImplementedException();
+            return await mProductService.GetProductOrNullAsync(id);
+        }
+
+        public async Task<List<XProduct>> GetProductsAsync()
+        {
+            return await mProductService.GetProductsAsync();
         }
     }
 }

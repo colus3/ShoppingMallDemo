@@ -6,9 +6,10 @@
     <SharedGUID>e362363d-227f-4e60-9dcc-7b73d307b6b7</SharedGUID>
   </PropertyGroup>
   <PropertyGroup Label="Configuration">
-    <Import_RootNamespace>Product.Http</Import_RootNamespace>
+    <Import_RootNamespace>ApiClients.Product.Http</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)ProductHttpClient.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ProductServiceOptions.cs" />
   </ItemGroup>
 </Project>

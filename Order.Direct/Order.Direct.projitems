@@ -6,7 +6,7 @@
     <SharedGUID>c9804204-9570-43ce-962e-80c384ebe902</SharedGUID>
   </PropertyGroup>
   <PropertyGroup Label="Configuration">
-    <Import_RootNamespace>Order.Direct</Import_RootNamespace>
+    <Import_RootNamespace>ApiClients.Order.Direct</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)OrderDirectClient.cs" />

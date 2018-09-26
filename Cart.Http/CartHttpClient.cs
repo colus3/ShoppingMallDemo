@@ -1,6 +1,6 @@
-﻿using Cart.Common;
+﻿using ApiClients.Cart.Common;
 
-namespace Cart.Http
+namespace ApiClients.Cart.Http
 {
     public sealed class CartHttpClient : ICartClient
     {

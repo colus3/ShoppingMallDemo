@@ -1,4 +1,4 @@
-﻿namespace Order.Common
+﻿namespace ApiClients.Order.Common
 {
     public interface IOrderClient
     {

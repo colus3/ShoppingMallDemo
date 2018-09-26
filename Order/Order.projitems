@@ -6,7 +6,7 @@
     <SharedGUID>e2606c2e-9384-494e-82bf-645d0a8a6759</SharedGUID>
   </PropertyGroup>
   <PropertyGroup Label="Configuration">
-    <Import_RootNamespace>Order</Import_RootNamespace>
+    <Import_RootNamespace>Services.Order</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)Controllers\OrdersController.cs" />

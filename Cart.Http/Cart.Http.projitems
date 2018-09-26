@@ -6,7 +6,7 @@
     <SharedGUID>aff9af2f-ffb6-4a15-a134-24c1e2b1cf4d</SharedGUID>
   </PropertyGroup>
   <PropertyGroup Label="Configuration">
-    <Import_RootNamespace>Cart.Http</Import_RootNamespace>
+    <Import_RootNamespace>ApiClients.Cart.Http</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)CartHttpClient.cs" />

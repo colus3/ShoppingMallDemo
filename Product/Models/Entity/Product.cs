@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Product.Models.Entity
+namespace Services.Product.Models.Entity
 {
     public class Product
     {
@@ -12,6 +12,6 @@ namespace Product.Models.Entity
         public string Name { get; set; }
 
         [Required]
-        public decimal Price { get; set; }
+        public decimal? Price { get; set; }
     }
 }

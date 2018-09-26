@@ -1,4 +1,4 @@
-﻿namespace Cart.Common.DTO
+﻿namespace ApiClients.Cart.Common.DTO
 {
     public sealed class XCartItem
     {

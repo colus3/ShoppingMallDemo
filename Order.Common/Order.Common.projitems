@@ -6,7 +6,7 @@
     <SharedGUID>5bd457e8-bc0b-4c03-86b0-238ef5ab9df0</SharedGUID>
   </PropertyGroup>
   <PropertyGroup Label="Configuration">
-    <Import_RootNamespace>Order.Common</Import_RootNamespace>
+    <Import_RootNamespace>ApiClients.Order.Common</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)DTO\EXDeliveryMethod.cs" />

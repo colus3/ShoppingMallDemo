@@ -1,13 +1,13 @@
-﻿using Product.Common.DTO;
+﻿using ApiClients.Product.Common.DTO;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Product.Common
+namespace ApiClients.Product.Common
 {
     public interface IProductClient
     {
-        Task<List<XProduct>> GetProducts();
+        Task<List<XProduct>> GetProductsAsync();
 
-        Task<XProduct> GetProduct(long id);
+        Task<XProduct> GetProductAsync(long id);
     }
 }

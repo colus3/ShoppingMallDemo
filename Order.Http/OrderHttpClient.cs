@@ -1,6 +1,6 @@
-﻿using Order.Common;
+﻿using ApiClients.Order.Common;
 
-namespace Order.Http
+namespace ApiClients.Order.Http
 {
     public sealed class OrderHttpClient : IOrderClient
     {

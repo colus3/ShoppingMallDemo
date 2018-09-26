@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace Order.Controllers
+namespace Services.Order.Controllers
 {
     public sealed class OrdersController : Controller
     {

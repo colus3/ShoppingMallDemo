@@ -1,20 +1,53 @@
-﻿using System.Collections.Generic;
+﻿using ApiClients.Product.Common;
+using ApiClients.Product.Common.DTO;
+using Microsoft.Extensions.Options;
+using System.Collections.Generic;
+using System.Net.Http;
 using System.Threading.Tasks;
-using Product.Common;
-using Product.Common.DTO;
 
-namespace Product.Http
+namespace ApiClients.Product.Http
 {
     public sealed class ProductHttpClient : IProductClient
     {
-        public Task<XProduct> GetProduct(long id)
+        private readonly IHttpClientFactory mHttpClientFactory;
+        private readonly ProductServiceOptions mOptions;
+
+        public ProductHttpClient(IHttpClientFactory httpClientFactory, IOptionsSnapshot<ProductServiceOptions> options)
         {
-            throw new System.NotImplementedException();
+            mHttpClientFactory = httpClientFactory;
+            mOptions = options.Value;
         }
 
-        public Task<List<XProduct>> GetProducts()
+        public async Task<XProduct> GetProductAsync(long id)
         {
-            throw new System.NotImplementedException();
+            var httpClient = mHttpClientFactory.CreateClient(nameof(ProductHttpClient));
+
+            using (var response = await httpClient.GetAsync($"{mOptions.ProductServiceBaseUrl}/Api/Internal/Products/{id}"))
+            {
+                if (response.IsSuccessStatusCode)
+                {
+                    return await response.Content.ReadAsAsync<XProduct>();
+                }
+
+                // Normally, you would log appriate errors and return proper error code here instead of returning null.
+                return null;
+            }
+        }
+
+        public async Task<List<XProduct>> GetProductsAsync()
+        {
+            var httpClient = mHttpClientFactory.CreateClient(nameof(ProductHttpClient));
+
+            using (var response = await httpClient.GetAsync($"{mOptions.ProductServiceBaseUrl}/Api/Internal/Products"))
+            {
+                if (response.IsSuccessStatusCode)
+                {
+                    return await response.Content.ReadAsAsync<List<XProduct>>();
+                }
+
+                // Normally, you would log appriate errors and return proper error code here instead of returning null.
+                return null;
+            }
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace Cart.Models.Entity
+﻿namespace Services.Cart.Models.Entity
 {
     public enum ECartStatus
     {

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Order.Common.DTO
+namespace ApiClients.Order.Common.DTO
 {
     public sealed class XOrder
     {

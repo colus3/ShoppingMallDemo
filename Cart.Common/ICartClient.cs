@@ -1,4 +1,4 @@
-﻿namespace Cart.Common
+﻿namespace ApiClients.Cart.Common
 {
     public interface ICartClient
     {

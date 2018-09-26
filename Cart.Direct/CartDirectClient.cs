@@ -1,6 +1,6 @@
-﻿using Cart.Common;
+﻿using ApiClients.Cart.Common;
 
-namespace Cart.Direct
+namespace ApiClients.Cart.Direct
 {
     public sealed class CartDirectClient : ICartClient
     {

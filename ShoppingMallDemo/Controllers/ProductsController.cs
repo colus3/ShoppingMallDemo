@@ -1,29 +1,44 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using ApiClients.Product.Common;
+using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 
 namespace ShoppingMallDemo.Controllers
 {
     [Route("Products")]
     public class ProductsController : Controller
     {
+        public readonly IProductClient mProductClient;
+
+        public ProductsController(IProductClient productClient)
+        {
+            mProductClient = productClient;
+        }
+
         [HttpGet]
         [Route("")]
-        public IActionResult GetProductList()
+        public async Task<IActionResult> GetProductList()
         {
-            return Ok();
+            var products = await mProductClient.GetProductsAsync();
+            return Ok(products);
         }
 
         [HttpGet]
         [Route("{ID}")]
-        public IActionResult GetProduct(long ID)
+        public async Task<IActionResult> GetProduct(long ID)
         {
-            return Ok();
-        }
+            if (!ModelState.IsValid)
+            {
+                return BadRequest();
+            }
 
-        [HttpPost]
-        [Route("{ID}")]
-        public IActionResult AddToCart(long ID)
-        {
-            return Ok();
+            var product = await mProductClient.GetProductAsync(ID);
+
+            if (product == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(product);
         }
     }
 }
