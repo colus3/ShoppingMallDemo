@@ -24,7 +24,7 @@ namespace ShoppingMallDemo.Controllers
 
         [HttpGet]
         [Route("{ID}")]
-        public async Task<IActionResult> GetProduct(long ID)
+        public async Task<IActionResult> GetProduct([FromRoute] long ID)
         {
             if (!ModelState.IsValid)
             {

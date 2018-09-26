@@ -10,8 +10,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)DTO\EXCartStatus.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DTO\XAddCartItemRequest.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DTO\XCart.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DTO\XCartItem.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DTO\XUpdateCartItemQuantityRequest.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ICartClient.cs" />
   </ItemGroup>
 </Project>

@@ -16,7 +16,7 @@ namespace Services.Cart.Models.Entity
         public long? UserID { get; set; }
 
         [Required]
-        public ECartStatus? Status { get; set; }
+        public ECartStatus Status { get; set; } = ECartStatus.Active;
 
         public virtual List<CartItem> CartItems { get; set; }
     }

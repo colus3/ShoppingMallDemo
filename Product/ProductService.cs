@@ -18,7 +18,7 @@ namespace Services.Product
 
         public async Task<List<XProduct>> GetProductsAsync()
         {
-            var products = await mDbContext.Products.ToListAsync();
+            var products = await mDbContext.Products.AsNoTracking().ToListAsync();
 
             return products.Select(p => new XProduct
             (
@@ -30,7 +30,7 @@ namespace Services.Product
 
         public async Task<XProduct> GetProductOrNullAsync(long ID)
         {
-            var product = await mDbContext.Products.FirstOrDefaultAsync(p => p.ID == ID);
+            var product = await mDbContext.Products.AsNoTracking().FirstOrDefaultAsync(p => p.ID == ID);
 
             if (product == null)
             {

@@ -1,27 +1,35 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 
 namespace ShoppingMallDemo.Controllers
 {
     [Route("Cart")]
     public class ShoppingCartController : Controller
     {
+        [HttpPost]
+        [Route("")]
+        public async Task<IActionResult> AddCartItem()
+        {
+            return Ok();
+        }
+
         [HttpGet]
         [Route("")]
-        public IActionResult GetCart()
+        public async Task<IActionResult> GetCart()
         {
             return Ok();
         }
 
         [HttpPatch]
-        [Route("")]
-        public IActionResult UpdateCartItemQuantity()
+        [Route("{cartItemID}")]
+        public async Task<IActionResult> UpdateCartItemQuantity(long cartItemID)
         {
             return Ok();
         }
 
-        [HttpPost]
+        [HttpPut]
         [Route("")]
-        public IActionResult PlaceOrder()
+        public async Task<IActionResult> PlaceOrder()
         {
             return Ok();
         }
