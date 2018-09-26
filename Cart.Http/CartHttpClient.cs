@@ -49,11 +49,6 @@ namespace ApiClients.Cart.Http
             }
         }
 
-        public Task PlaceOrderAsync()
-        {
-            throw new System.NotImplementedException();
-        }
-
         public async Task<bool> UpdateCartItemQuantityAsync(long cartID, long cartItemID, XUpdateCartItemQuantityRequest request)
         {
             var httpClient = mHttpClientFactory.CreateClient(nameof(CartHttpClient));

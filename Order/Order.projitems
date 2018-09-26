@@ -10,9 +10,11 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)Controllers\OrdersController.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\OrderDbContext.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Entity\EOrderStatus.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Entity\EDeliveryMethod.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Entity\Order.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Entity\OrderItem.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)OrderService.cs" />
   </ItemGroup>
 </Project>

@@ -10,7 +10,5 @@ namespace ApiClients.Cart.Common
         Task<XCart> GetCartByUserIDAsync(long userID);
 
         Task<bool> UpdateCartItemQuantityAsync(long cartID, long cartItemID, XUpdateCartItemQuantityRequest request);
-
-        Task PlaceOrderAsync();
     }
 }

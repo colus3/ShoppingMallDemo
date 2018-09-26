@@ -25,11 +25,6 @@ namespace ApiClients.Cart.Direct
             return await mCartService.GetCartByUserIDAsync(userID);
         }
 
-        public async Task PlaceOrderAsync()
-        {
-            await mCartService.PlaceOrderAsync();
-        }
-
         public async Task<bool> UpdateCartItemQuantityAsync(long cartID, long cartItemID, XUpdateCartItemQuantityRequest request)
         {
             var cart = await mCartService.GetCartAsync(cartID);

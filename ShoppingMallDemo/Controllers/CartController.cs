@@ -66,12 +66,5 @@ namespace ShoppingMallDemo.Controllers
 
             return Ok();
         }
-
-        [HttpPut]
-        [Route("")]
-        public async Task<IActionResult> PlaceOrder()
-        {
-            return Ok();
-        }
     }
 }

@@ -140,10 +140,5 @@ namespace Services.Cart
 
             return true;
         }
-
-        public async Task PlaceOrderAsync()
-        {
-
-        }
     }
 }
