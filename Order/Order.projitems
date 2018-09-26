@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>e2606c2e-9384-494e-82bf-645d0a8a6759</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>Order</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Controllers\OrdersController.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Entity\EOrderStatus.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Entity\EDeliveryMethod.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Entity\Order.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Entity\OrderItem.cs" />
+  </ItemGroup>
+</Project>

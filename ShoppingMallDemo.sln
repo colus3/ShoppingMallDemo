@@ -1,0 +1,94 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2026
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShoppingMallDemo", "ShoppingMallDemo\ShoppingMallDemo.csproj", "{19123FB3-B1BB-4D26-BF94-F35F1D9728E7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ApiClients", "ApiClients", "{76E7C645-9FB6-41E0-8C20-495EB779EB22}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{A326CD9C-D6F1-4672-97EE-6D139C21A411}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Product", "Product\Product.shproj", "{EC458B2E-D9F3-488D-B700-0968973D997B}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Order", "Order\Order.shproj", "{E2606C2E-9384-494E-82BF-645D0A8A6759}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Product.Common", "Product.Common\Product.Common.shproj", "{66715212-5409-4528-B69F-10D5F39E697D}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Order.Common", "Order.Common\Order.Common.shproj", "{5BD457E8-BC0B-4C03-86B0-238EF5AB9DF0}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Order.Direct", "Order.Direct\Order.Direct.shproj", "{C9804204-9570-43CE-962E-80C384EBE902}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Order.Http", "Order.Http\Order.Http.shproj", "{D553D027-F6AC-4A96-A622-A60C1FA0AD38}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Product.Http", "Product.Http\Product.Http.shproj", "{E362363D-227F-4E60-9DCC-7B73D307B6B7}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Product.Direct", "Product.Direct\Product.Direct.shproj", "{4313ABC5-7682-4FD7-976B-29EBCA4FE4D2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InternalTool", "InternalTool\InternalTool.csproj", "{943BD4F2-941B-4399-9D01-ECE75B8C6837}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionFiles", "SolutionFiles", "{0543BF09-4F93-4962-BD04-8399D55EABB1}"
+	ProjectSection(SolutionItems) = preProject
+		.gitattributes = .gitattributes
+		.gitignore = .gitignore
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Cart", "Cart\Cart.shproj", "{D30A5909-46CC-4862-9B7C-73AC12232CB3}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Cart.Common", "Cart.Common\Cart.Common.shproj", "{2AF4F0F3-F8B0-463F-B739-671EEEE6FB26}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Cart.Direct", "Cart.Direct\Cart.Direct.shproj", "{E9335834-98D0-4625-BB98-FA9C827CE9CB}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Cart.Http", "Cart.Http\Cart.Http.shproj", "{AFF9AF2F-FFB6-4A15-A134-24C1E2B1CF4D}"
+EndProject
+Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		Cart.Common\Cart.Common.projitems*{2af4f0f3-f8b0-463f-b739-671eeee6fb26}*SharedItemsImports = 13
+		Product.Direct\Product.Direct.projitems*{4313abc5-7682-4fd7-976b-29ebca4fe4d2}*SharedItemsImports = 13
+		Order.Common\Order.Common.projitems*{5bd457e8-bc0b-4c03-86b0-238ef5ab9df0}*SharedItemsImports = 13
+		Product.Common\Product.Common.projitems*{66715212-5409-4528-b69f-10d5f39e697d}*SharedItemsImports = 13
+		Cart.Http\Cart.Http.projitems*{aff9af2f-ffb6-4a15-a134-24c1e2b1cf4d}*SharedItemsImports = 13
+		Order.Direct\Order.Direct.projitems*{c9804204-9570-43ce-962e-80c384ebe902}*SharedItemsImports = 13
+		Cart\Cart.projitems*{d30a5909-46cc-4862-9b7c-73ac12232cb3}*SharedItemsImports = 13
+		Order.Http\Order.Http.projitems*{d553d027-f6ac-4a96-a622-a60c1fa0ad38}*SharedItemsImports = 13
+		Order\Order.projitems*{e2606c2e-9384-494e-82bf-645d0a8a6759}*SharedItemsImports = 13
+		Product.Http\Product.Http.projitems*{e362363d-227f-4e60-9dcc-7b73d307b6b7}*SharedItemsImports = 13
+		Cart.Direct\Cart.Direct.projitems*{e9335834-98d0-4625-bb98-fa9c827ce9cb}*SharedItemsImports = 13
+		Product\Product.projitems*{ec458b2e-d9f3-488d-b700-0968973d997b}*SharedItemsImports = 13
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{19123FB3-B1BB-4D26-BF94-F35F1D9728E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{19123FB3-B1BB-4D26-BF94-F35F1D9728E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{19123FB3-B1BB-4D26-BF94-F35F1D9728E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{19123FB3-B1BB-4D26-BF94-F35F1D9728E7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{943BD4F2-941B-4399-9D01-ECE75B8C6837}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{943BD4F2-941B-4399-9D01-ECE75B8C6837}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{943BD4F2-941B-4399-9D01-ECE75B8C6837}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{943BD4F2-941B-4399-9D01-ECE75B8C6837}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{EC458B2E-D9F3-488D-B700-0968973D997B} = {A326CD9C-D6F1-4672-97EE-6D139C21A411}
+		{E2606C2E-9384-494E-82BF-645D0A8A6759} = {A326CD9C-D6F1-4672-97EE-6D139C21A411}
+		{66715212-5409-4528-B69F-10D5F39E697D} = {76E7C645-9FB6-41E0-8C20-495EB779EB22}
+		{5BD457E8-BC0B-4C03-86B0-238EF5AB9DF0} = {76E7C645-9FB6-41E0-8C20-495EB779EB22}
+		{C9804204-9570-43CE-962E-80C384EBE902} = {76E7C645-9FB6-41E0-8C20-495EB779EB22}
+		{D553D027-F6AC-4A96-A622-A60C1FA0AD38} = {76E7C645-9FB6-41E0-8C20-495EB779EB22}
+		{E362363D-227F-4E60-9DCC-7B73D307B6B7} = {76E7C645-9FB6-41E0-8C20-495EB779EB22}
+		{4313ABC5-7682-4FD7-976B-29EBCA4FE4D2} = {76E7C645-9FB6-41E0-8C20-495EB779EB22}
+		{D30A5909-46CC-4862-9B7C-73AC12232CB3} = {A326CD9C-D6F1-4672-97EE-6D139C21A411}
+		{2AF4F0F3-F8B0-463F-B739-671EEEE6FB26} = {76E7C645-9FB6-41E0-8C20-495EB779EB22}
+		{E9335834-98D0-4625-BB98-FA9C827CE9CB} = {76E7C645-9FB6-41E0-8C20-495EB779EB22}
+		{AFF9AF2F-FFB6-4A15-A134-24C1E2B1CF4D} = {76E7C645-9FB6-41E0-8C20-495EB779EB22}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {27217F50-4DA4-469E-9E18-17088395833D}
+	EndGlobalSection
+EndGlobal

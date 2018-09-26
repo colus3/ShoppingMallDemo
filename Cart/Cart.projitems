@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>d30a5909-46cc-4862-9b7c-73ac12232cb3</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>Cart</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Entity\Cart.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Entity\CartItem.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Entity\ECartStatus.cs" />
+  </ItemGroup>
+</Project>
