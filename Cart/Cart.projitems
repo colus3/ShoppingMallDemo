@@ -9,6 +9,7 @@
     <Import_RootNamespace>Cart</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Controllers\CartController.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Entity\Cart.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Entity\CartItem.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Entity\ECartStatus.cs" />
