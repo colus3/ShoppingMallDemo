@@ -9,6 +9,10 @@
     <Import_RootNamespace>Order.Common</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)DTO\EXDeliveryMethod.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DTO\EXOrderStatus.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DTO\XOrder.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DTO\XOrderItem.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)IOrderClient.cs" />
   </ItemGroup>
 </Project>
