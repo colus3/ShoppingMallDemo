@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace ApiClients.Cart.Common.DTO
+namespace ShoppingMallDemo.Models.DTO
 {
-    public sealed class XUpdateCartItemQuantityRequest
+    public sealed class UpdateCartItemQuantityRequest
     {
         [Required]
         [Range(1, 50)]

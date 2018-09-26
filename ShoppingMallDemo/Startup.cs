@@ -1,4 +1,6 @@
-﻿using ApiClients.Product.Common;
+﻿using ApiClients.Cart.Common;
+using ApiClients.Cart.Direct;
+using ApiClients.Product.Common;
 using ApiClients.Product.Direct;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -6,6 +8,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Services.Cart;
+using Services.Cart.Data;
 using Services.Product;
 using Services.Product.Data;
 
@@ -25,9 +29,13 @@ namespace ShoppingMallDemo
         {
             services.AddDbContext<ProductDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddDbContext<CartDbContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddTransient<ProductService>();
             services.AddTransient<IProductClient, ProductDirectClient>();
+            services.AddTransient<CartService>();
+            services.AddTransient<ICartClient, CartDirectClient>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
