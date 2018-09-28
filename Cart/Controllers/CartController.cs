@@ -1,6 +1,5 @@
 ﻿using ApiClients.Cart.Common.DTO;
 using Microsoft.AspNetCore.Mvc;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace Services.Cart.Controllers
@@ -16,15 +15,15 @@ namespace Services.Cart.Controllers
         }
 
         [HttpPost]
-        [Route("{cartID}")]
-        public async Task<IActionResult> AddCartItemAsync([FromRoute] long cartID, [FromBody] XAddCartItemRequest request)
+        [Route("{userID}")]
+        public async Task<IActionResult> AddCartItemAsync([FromRoute] long userID, [FromBody] XAddCartItemRequest request)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest();
             }
 
-            if (!await mCartService.AddCartItemAsync(cartID, request.ProductID.Value))
+            if (!await mCartService.AddCartItemAsync(userID, request.ProductID.Value))
             {
                 return NotFound();
             }
@@ -46,41 +45,17 @@ namespace Services.Cart.Controllers
         }
 
         [HttpPatch]
-        [Route("{cartID}/CartItems/{cartItemID}")]
-        public async Task<IActionResult> UpdateCartItemQuantity([FromRoute] long cartID, [FromRoute] long cartItemID, [FromBody] XUpdateCartItemQuantityRequest request)
+        [Route("ByUserID/{userID}/CartItems/{cartItemID}")]
+        public async Task<IActionResult> UpdateCartItemQuantity([FromRoute] long userID, [FromRoute] long cartItemID, [FromBody] XUpdateCartItemQuantityRequest request)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest();
             }
 
-            var cart = await mCartService.GetCartAsync(cartID);
-
-            if (cart == null)
+            if (!await mCartService.UpdateCartItemQuantityAsync(userID, cartItemID, request.Quantity.Value))
             {
                 return NotFound();
-            }
-
-            if (!cart.CartItems.Any(ci => ci.ID == cartItemID))
-            {
-                return NotFound();
-            }
-
-            if (!await mCartService.UpdateCartItemQuantityAsync(cartItemID, request.Quantity.Value))
-            {
-                return NotFound();
-            }
-
-            return Ok();
-        }
-
-        [HttpPut]
-        [Route("{cartID}")]
-        public async Task<IActionResult> PlaceOrderAsync([FromRoute] long cartID)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest();
             }
 
             return Ok();

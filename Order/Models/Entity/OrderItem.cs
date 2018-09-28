@@ -17,6 +17,9 @@ namespace Services.Order.Models.Entity
         [Required]
         public int? Quantity { get; set; }
 
+        [Required]
+        public decimal? Price { get; set; }
+
         public virtual Order Order { get; set; }
     }
 }

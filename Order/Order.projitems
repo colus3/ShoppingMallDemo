@@ -15,6 +15,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)Models\Entity\EDeliveryMethod.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Entity\Order.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Entity\OrderItem.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Extensions\EDeliveryMethodExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Extensions\EOrderStatusExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)OrderService.cs" />
   </ItemGroup>
 </Project>

@@ -1,4 +1,5 @@
 ﻿using ApiClients.Cart.Common.DTO;
+using ApiClients.Order.Common;
 using Microsoft.EntityFrameworkCore;
 using Services.Cart.Data;
 using Services.Product.Models.Extensions;
@@ -11,18 +12,18 @@ namespace Services.Cart
     public sealed class CartService
     {
         private readonly CartDbContext mDbContext;
+        private readonly IOrderClient mOrderClient;
 
-        public CartService(CartDbContext dbContext)
+        public CartService(CartDbContext dbContext, IOrderClient orderClient)
         {
             mDbContext = dbContext;
+            mOrderClient = orderClient;
         }
 
-        public async Task<bool> AddCartItemAsync(long cartID, long productID)
+        public async Task<bool> AddCartItemAsync(long userID, long productID)
         {
             var cart = await mDbContext.Carts
-                .AsNoTracking()
-                .Include(c => c.CartItems)
-                .FirstOrDefaultAsync(c => c.ID == cartID);
+                .FirstOrDefaultAsync(c => c.UserID == userID && c.Status == Models.Entity.ECartStatus.Active);
 
             if (cart == null)
             {
@@ -72,7 +73,6 @@ namespace Services.Cart
             var xCart = new XCart
                 (
                     id: cart.ID,
-                    totalPrice: cart.TotalPrice.Value,
                     userID: cart.UserID.Value,
                     status: cart.Status.ToEXCartStatus(),
                     cartItems: xCartItems
@@ -93,7 +93,6 @@ namespace Services.Cart
                 cart = new Models.Entity.Cart
                 {
                     ID = userID,
-                    TotalPrice = 0,
                     UserID = userID,
                     Status = Models.Entity.ECartStatus.Active,
                 };
@@ -117,7 +116,6 @@ namespace Services.Cart
             var xCart = new XCart
                 (
                     id: cart.ID,
-                    totalPrice: cart.TotalPrice.Value,
                     userID: cart.UserID.Value,
                     status: cart.Status.ToEXCartStatus(),
                     cartItems: xCartItems
@@ -126,9 +124,11 @@ namespace Services.Cart
             return xCart;
         }
 
-        public async Task<bool> UpdateCartItemQuantityAsync(long cartItemID, int quantity)
+        public async Task<bool> UpdateCartItemQuantityAsync(long userID, long cartItemID, int quantity)
         {
-            var cartItem = await mDbContext.CartItems.FirstOrDefaultAsync(ci => ci.ID == cartItemID);
+            var cartItem = await mDbContext.CartItems
+                .Include(ci => ci.Cart)
+                .FirstOrDefaultAsync(ci => ci.ID == cartItemID && ci.Cart.UserID == userID && ci.Cart.Status == Models.Entity.ECartStatus.Active);
 
             if (cartItem == null)
             {

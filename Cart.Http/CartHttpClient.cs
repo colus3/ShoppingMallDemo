@@ -19,13 +19,13 @@ namespace ApiClients.Cart.Http
             mOptions = options.Value;
         }
 
-        public async Task<bool> AddCartItemAsync(long cartID, XAddCartItemRequest request)
+        public async Task<bool> AddCartItemAsync(long userID, XAddCartItemRequest request)
         {
             var httpClient = mHttpClientFactory.CreateClient(nameof(CartHttpClient));
 
             var body = new StringContent(JsonConvert.SerializeObject(request), Encoding.UTF8, "application/json");
 
-            using (var response = await httpClient.PostAsync($"{mOptions.CartServiceBaseUrl}/Api/Internal/Carts/{cartID}", body))
+            using (var response = await httpClient.PostAsync($"{mOptions.CartServiceBaseUrl}/Api/Internal/Carts/{userID}", body))
             {
                 // Normally, you would log appriate errors and return proper error code here instead of true/false.
 
@@ -49,13 +49,13 @@ namespace ApiClients.Cart.Http
             }
         }
 
-        public async Task<bool> UpdateCartItemQuantityAsync(long cartID, long cartItemID, XUpdateCartItemQuantityRequest request)
+        public async Task<bool> UpdateCartItemQuantityAsync(long userID, long cartItemID, XUpdateCartItemQuantityRequest request)
         {
             var httpClient = mHttpClientFactory.CreateClient(nameof(CartHttpClient));
 
             var body = new StringContent(JsonConvert.SerializeObject(request), Encoding.UTF8, "application/json");
 
-            using (var response = await httpClient.PostAsync($"{mOptions.CartServiceBaseUrl}/Api/Internal/Carts/{cartID}/CartItems/{cartItemID}", body))
+            using (var response = await httpClient.PostAsync($"{mOptions.CartServiceBaseUrl}/Api/Internal/Carts/ByUserID/{userID}/CartItems/{cartItemID}", body))
             {
                 // Normally, you would log appriate errors and return proper error code here instead of true/false.
                 return response.IsSuccessStatusCode;

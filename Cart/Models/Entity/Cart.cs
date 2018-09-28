@@ -10,9 +10,6 @@ namespace Services.Cart.Models.Entity
         public long ID { get; set; }
 
         [Required]
-        public decimal? TotalPrice { get; set; }
-
-        [Required]
         public long? UserID { get; set; }
 
         [Required]

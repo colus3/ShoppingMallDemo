@@ -15,9 +15,9 @@ namespace ApiClients.Cart.Direct
             mCartService = cartService;
         }
 
-        public async Task<bool> AddCartItemAsync(long cartID, XAddCartItemRequest request)
+        public async Task<bool> AddCartItemAsync(long userID, XAddCartItemRequest request)
         {
-            return await mCartService.AddCartItemAsync(cartID, request.ProductID.Value);
+            return await mCartService.AddCartItemAsync(userID, request.ProductID.Value);
         }
 
         public async Task<XCart> GetCartByUserIDAsync(long userID)
@@ -25,21 +25,9 @@ namespace ApiClients.Cart.Direct
             return await mCartService.GetCartByUserIDAsync(userID);
         }
 
-        public async Task<bool> UpdateCartItemQuantityAsync(long cartID, long cartItemID, XUpdateCartItemQuantityRequest request)
+        public async Task<bool> UpdateCartItemQuantityAsync(long userID, long cartItemID, XUpdateCartItemQuantityRequest request)
         {
-            var cart = await mCartService.GetCartAsync(cartID);
-
-            if (cart == null)
-            {
-                return false;
-            }
-
-            if (!cart.CartItems.Any(ci => ci.ID == cartItemID))
-            {
-                return false;
-            }
-
-            return await mCartService.UpdateCartItemQuantityAsync(cartItemID, request.Quantity.Value);
+            return await mCartService.UpdateCartItemQuantityAsync(userID, cartItemID, request.Quantity.Value);
         }
     }
 }
