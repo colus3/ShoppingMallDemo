@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 
 namespace InternalTool.Controllers
 {
+    [Route("Products")]
     public class ProductsController : Controller
     {
         private readonly IProductClient mProductClient;
@@ -13,6 +14,8 @@ namespace InternalTool.Controllers
             mProductClient = productClient;
         }
 
+        [HttpGet]
+        [Route("")]
         public async Task<IActionResult> Index()
         {
             var products = await mProductClient.GetProductsAsync();

@@ -29,7 +29,7 @@ namespace InternalTool
             });
 
             services.AddOptions();
-            services.AddOptions<ProductServiceOptions>("ProductService");
+            services.Configure<ProductServiceOptions>(Configuration.GetSection("ProductService"));
 
             services.AddHttpClient();
 

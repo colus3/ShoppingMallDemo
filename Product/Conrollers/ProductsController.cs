@@ -37,7 +37,7 @@ namespace Services.Product.Conrollers
                 return NotFound();
             }
 
-            return Ok();
+            return Ok(product);
         }
     }
 }
