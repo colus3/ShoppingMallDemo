@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
-namespace Services.Product.Conrollers
+namespace Services.Product.Controllers
 {
     [Route("Api/Internal/Products")]
     public sealed class ProductsController : Controller

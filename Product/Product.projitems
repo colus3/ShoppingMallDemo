@@ -9,7 +9,7 @@
     <Import_RootNamespace>Services.Product</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="$(MSBuildThisFileDirectory)Conrollers\ProductsController.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controllers\ProductsController.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\ProductDbContext.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Entity\Product.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ProductService.cs" />
