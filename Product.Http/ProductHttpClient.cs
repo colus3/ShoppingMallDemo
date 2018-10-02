@@ -29,7 +29,7 @@ namespace ApiClients.Product.Http
                     return await response.Content.ReadAsAsync<XProduct>();
                 }
 
-                // Normally, you would log appriate errors and return proper error code here instead of returning null.
+                // Normally, you would log appropriate errors and return proper error code here instead of returning null.
                 return null;
             }
         }
@@ -45,7 +45,7 @@ namespace ApiClients.Product.Http
                     return await response.Content.ReadAsAsync<List<XProduct>>();
                 }
 
-                // Normally, you would log appriate errors and return proper error code here instead of returning null.
+                // Normally, you would log appropriate errors and return proper error code here instead of returning null.
                 return null;
             }
         }

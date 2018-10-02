@@ -27,7 +27,7 @@ namespace ApiClients.Cart.Http
 
             using (var response = await httpClient.PostAsync($"{mOptions.CartServiceBaseUrl}/Api/Internal/Carts/{userID}", body))
             {
-                // Normally, you would log appriate errors and return proper error code here instead of true/false.
+                // Normally, you would log appropriate errors and return proper error code here instead of true/false.
 
                 return response.IsSuccessStatusCode;
             }
@@ -44,7 +44,7 @@ namespace ApiClients.Cart.Http
                     return await response.Content.ReadAsAsync<XCart>();
                 }
 
-                // Normally, you would log appriate errors and return proper error code here instead of returning null.
+                // Normally, you would log appropriate errors and return proper error code here instead of returning null.
                 return null;
             }
         }
@@ -57,7 +57,7 @@ namespace ApiClients.Cart.Http
 
             using (var response = await httpClient.PatchAsync($"{mOptions.CartServiceBaseUrl}/Api/Internal/Carts/ByUserID/{userID}/CartItems/{cartItemID}", body))
             {
-                // Normally, you would log appriate errors and return proper error code here instead of true/false.
+                // Normally, you would log appropriate errors and return proper error code here instead of true/false.
                 return response.IsSuccessStatusCode;
             }
         }
@@ -70,7 +70,7 @@ namespace ApiClients.Cart.Http
 
             using (var response = await httpClient.PatchAsync($"{mOptions.CartServiceBaseUrl}/Api/Internal/Carts/ByUserID/{userID}", body))
             {
-                // Normally, you would log appriate errors and return proper error code here instead of true/false.
+                // Normally, you would log appropriate errors and return proper error code here instead of true/false.
                 return response.IsSuccessStatusCode;
             }
         }

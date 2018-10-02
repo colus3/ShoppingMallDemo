@@ -43,7 +43,7 @@ namespace ApiClients.Order.Http
                     return await response.Content.ReadAsAsync<XOrder>();
                 }
 
-                // Normally, you would log appriate errors and return proper error code here instead of returning null.
+                // Normally, you would log appropriate errors and return proper error code here instead of returning null.
                 return null;
             }
         }
@@ -59,7 +59,7 @@ namespace ApiClients.Order.Http
                     return await response.Content.ReadAsAsync<List<XOrder>>();
                 }
 
-                // Normally, you would log appriate errors and return proper error code here instead of returning null.
+                // Normally, you would log appropriate errors and return proper error code here instead of returning null.
                 return null;
             }
         }
