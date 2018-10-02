@@ -1,0 +1,29 @@
+﻿@model XProduct
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<dl>
+    <dt>
+        @Html.DisplayNameFor(p => p.ID)
+    </dt>
+    <dd>
+        @Model.ID
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(p => p.Name)
+    </dt>
+    <dd>
+        @Model.Name
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(p => p.Price)
+    </dt>
+    <dd>
+        @Model.Price
+    </dd>
+</dl>
+

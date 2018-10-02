@@ -13,6 +13,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Services.Cart;
 using Services.Cart.Data;
 using Services.Order;
+using Services.Order.Data;
 using Services.Product;
 using Services.Product.Data;
 
@@ -33,6 +34,8 @@ namespace ShoppingMallDemo
             services.AddDbContext<ProductDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddDbContext<CartDbContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddDbContext<OrderDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddTransient<ProductService>();
