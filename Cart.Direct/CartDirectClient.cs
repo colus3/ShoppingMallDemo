@@ -29,5 +29,10 @@ namespace ApiClients.Cart.Direct
         {
             return await mCartService.UpdateCartItemQuantityAsync(userID, cartItemID, request.Quantity.Value);
         }
+
+        public async Task<bool> UpdateCartStatus(long userID, XUpdateCartStatusRequest request)
+        {
+            return await mCartService.UpdateCartStatus(userID, request.Status.Value);
+        }
     }
 }

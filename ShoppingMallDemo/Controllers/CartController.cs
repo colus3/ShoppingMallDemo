@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using ShoppingMallDemo.Models.DTO;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 
 namespace ShoppingMallDemo.Controllers
@@ -39,6 +40,11 @@ namespace ShoppingMallDemo.Controllers
 
             var cart = await mCartClient.GetCartByUserIDAsync(userID);
 
+            if (!cart.CartItems.Any())
+            {
+                return BadRequest();
+            }
+
             var getproductTasks = cart.CartItems.Select(ci => mProductClient.GetProductAsync(ci.ProductID)).ToList();
 
             var orderItems = new List<XAddOrderItemRequestItems>();
@@ -54,13 +60,31 @@ namespace ShoppingMallDemo.Controllers
                 });
             }
 
-            await mOrderClient.AddOrderAsync(new XAddOrderRequest
+            var bAddOrderSuccess = await mOrderClient.AddOrderAsync(new XAddOrderRequest
             {
                 UserID = userID,
                 Address = request.Address,
                 DeliveryMethod = request.DeliveryMethod.Value,
                 OrderItems = orderItems
             });
+
+            if (!bAddOrderSuccess)
+            {
+                return new ObjectResult(null)
+                {
+                    StatusCode = (int)HttpStatusCode.InternalServerError
+                };
+            }
+
+            var bUpdateCartStatusSuccess = await mCartClient.UpdateCartStatus(userID, new XUpdateCartStatusRequest { Status = EXCartStatus.Ordered });
+
+            if (!bUpdateCartStatusSuccess)
+            {
+                return new ObjectResult(null)
+                {
+                    StatusCode = (int)HttpStatusCode.InternalServerError
+                };
+            }
 
             return Ok();
         }
@@ -100,7 +124,7 @@ namespace ShoppingMallDemo.Controllers
                 ));
             }
 
-            return CreatedAtAction(nameof(GetCart), new GetCartResponse(
+            return Ok(new GetCartResponse(
                 id: cart.ID,
                 totalPrice: cartItems.Sum(ci => ci.Price * ci.Quantity),
                 cartItems: cartItems
@@ -143,6 +167,11 @@ namespace ShoppingMallDemo.Controllers
         [Route("CartItems/{cartItemID}")]
         public async Task<IActionResult> UpdateCartItemQuantity([FromRoute] long cartItemID, [FromBody] UpdateCartItemQuantityRequest request)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest();
+            }
+
             // Usually, you would get userid from an access token, for example. This is hardcoded for simplicity.
             var userID = 1;
 

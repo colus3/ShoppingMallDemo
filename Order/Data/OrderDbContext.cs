@@ -4,7 +4,7 @@ namespace Services.Order.Data
 {
     public sealed class OrderDbContext : DbContext
     {
-        public OrderDbContext(DbContextOptions options) : base(options)
+        public OrderDbContext(DbContextOptions<OrderDbContext> options) : base(options)
         {
         }
 

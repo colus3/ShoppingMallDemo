@@ -18,6 +18,7 @@ namespace Services.Order.Models.Entity
         public int? Quantity { get; set; }
 
         [Required]
+        [Column(TypeName = "DECIMAL(8,2)")]
         public decimal? Price { get; set; }
 
         public virtual Order Order { get; set; }

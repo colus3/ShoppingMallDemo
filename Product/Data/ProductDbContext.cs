@@ -4,7 +4,7 @@ namespace Services.Product.Data
 {
     public sealed class ProductDbContext : DbContext
     {
-        public ProductDbContext(DbContextOptions options) : base(options)
+        public ProductDbContext(DbContextOptions<ProductDbContext> options) : base(options)
         {
         }
 

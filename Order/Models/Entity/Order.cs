@@ -16,6 +16,7 @@ namespace Services.Order.Models.Entity
         public string Address { get; set; }
 
         [Required]
+        [Column(TypeName = "DECIMAL(8,2)")]
         public decimal? TotalPrice { get; set; }
 
         [Required]

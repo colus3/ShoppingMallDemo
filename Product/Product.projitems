@@ -12,7 +12,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Conrollers\ProductsController.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\ProductDbContext.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Entity\Product.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Models\Extensions\CartStatusExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ProductService.cs" />
   </ItemGroup>
 </Project>

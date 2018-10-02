@@ -26,11 +26,6 @@ namespace Services.Order
                 DeliveryMethod = request.DeliveryMethod.Value.ToEntity()
             };
 
-            mOrderDbContext.Orders.Add(order);
-            await mOrderDbContext.SaveChangesAsync();
-
-            mOrderDbContext.Attach(order);
-
             order.OrderItems = request.OrderItems.Select(oi => new Models.Entity.OrderItem
             {
                 ProductID = oi.ProductID.Value,
@@ -38,6 +33,11 @@ namespace Services.Order
                 Quantity = oi.Quantity.Value,
                 Price = oi.Price.Value
             }).ToList();
+
+            order.TotalPrice = order.OrderItems.Sum(oi => oi.Quantity.Value * oi.Price.Value);
+
+            mOrderDbContext.Orders.Add(order);
+            await mOrderDbContext.SaveChangesAsync();
 
             return true;
         }

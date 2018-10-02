@@ -60,5 +60,22 @@ namespace Services.Cart.Controllers
 
             return Ok();
         }
+
+        [HttpPatch]
+        [Route("ByUserID/{userID}")]
+        public async Task<IActionResult> UpdateCartStatus([FromRoute] long userID, [FromBody] XUpdateCartStatusRequest request)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest();
+            }
+
+            if (!await mCartService.UpdateCartStatus(userID, request.Status.Value))
+            {
+                return NotFound();
+            }
+
+            return Ok();
+        }
     }
 }

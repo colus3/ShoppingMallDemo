@@ -2,7 +2,7 @@
 using ApiClients.Order.Common;
 using Microsoft.EntityFrameworkCore;
 using Services.Cart.Data;
-using Services.Product.Models.Extensions;
+using Services.Cart.Models.Extensions;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -81,6 +81,29 @@ namespace Services.Cart
             return xCart;
         }
 
+        public async Task<bool> UpdateCartStatus(long userID, EXCartStatus status)
+        {
+            var cart = await mDbContext.Carts
+                .Include(c => c.CartItems)
+                .FirstOrDefaultAsync(c => c.UserID.Value == userID && c.Status == Models.Entity.ECartStatus.Active);
+
+            if (cart == null)
+            {
+                return false;
+            }
+
+            var newStatus = status.ToEntity();
+            if (cart.Status == newStatus)
+            {
+                return true;
+            }
+
+            cart.Status = newStatus;
+            await mDbContext.SaveChangesAsync();
+
+            return true;
+        }
+
         public async Task<XCart> GetCartByUserIDAsync(long userID)
         {
             var cart = await mDbContext.Carts
@@ -92,7 +115,6 @@ namespace Services.Cart
             {
                 cart = new Models.Entity.Cart
                 {
-                    ID = userID,
                     UserID = userID,
                     Status = Models.Entity.ECartStatus.Active,
                 };

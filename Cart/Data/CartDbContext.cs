@@ -4,7 +4,7 @@ namespace Services.Cart.Data
 {
     public sealed class CartDbContext : DbContext
     {
-        public CartDbContext(DbContextOptions options) : base(options)
+        public CartDbContext(DbContextOptions<CartDbContext> options) : base(options)
         {
         }
 
@@ -22,7 +22,7 @@ namespace Services.Cart.Data
             builder.Entity<Models.Entity.Cart>()
                 .HasIndex(c => c.UserID)
                 .IsUnique()
-                .HasFilter("[Status] == 0");
+                .HasFilter("[Status] = 0");
         }
     }
 }

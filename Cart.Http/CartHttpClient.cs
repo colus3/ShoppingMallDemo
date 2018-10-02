@@ -55,7 +55,20 @@ namespace ApiClients.Cart.Http
 
             var body = new StringContent(JsonConvert.SerializeObject(request), Encoding.UTF8, "application/json");
 
-            using (var response = await httpClient.PostAsync($"{mOptions.CartServiceBaseUrl}/Api/Internal/Carts/ByUserID/{userID}/CartItems/{cartItemID}", body))
+            using (var response = await httpClient.PatchAsync($"{mOptions.CartServiceBaseUrl}/Api/Internal/Carts/ByUserID/{userID}/CartItems/{cartItemID}", body))
+            {
+                // Normally, you would log appriate errors and return proper error code here instead of true/false.
+                return response.IsSuccessStatusCode;
+            }
+        }
+
+        public async Task<bool> UpdateCartStatus(long userID, XUpdateCartStatusRequest request)
+        {
+            var httpClient = mHttpClientFactory.CreateClient(nameof(CartHttpClient));
+
+            var body = new StringContent(JsonConvert.SerializeObject(request), Encoding.UTF8, "application/json");
+
+            using (var response = await httpClient.PatchAsync($"{mOptions.CartServiceBaseUrl}/Api/Internal/Carts/ByUserID/{userID}", body))
             {
                 // Normally, you would log appriate errors and return proper error code here instead of true/false.
                 return response.IsSuccessStatusCode;
