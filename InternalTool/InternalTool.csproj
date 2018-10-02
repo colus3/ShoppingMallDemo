@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
@@ -9,16 +9,8 @@
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.1" />
   </ItemGroup>
 
-  <Import Project="..\Order.Common\Order.Common.projitems" Label="Shared" />
-
-  <Import Project="..\Order.Http\Order.Http.projitems" Label="Shared" />
-
   <Import Project="..\Product.Http\Product.Http.projitems" Label="Shared" />
 
   <Import Project="..\Product.Common\Product.Common.projitems" Label="Shared" />
-
-  <Import Project="..\Cart.Common\Cart.Common.projitems" Label="Shared" />
-
-  <Import Project="..\Cart.Http\Cart.Http.projitems" Label="Shared" />
 
 </Project>

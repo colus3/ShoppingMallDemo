@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using ApiClients.Order.Common;
 using ApiClients.Order.Common.DTO;
 using Microsoft.Extensions.Options;
+using Newtonsoft.Json;
 
 namespace ApiClients.Order.Http
 {
@@ -23,9 +24,9 @@ namespace ApiClients.Order.Http
         {
             var httpClient = mHttpClientFactory.CreateClient(nameof(OrderHttpClient));
 
-            var body = new StringContent("", Encoding.UTF8, "application/json");
+            var body = new StringContent(JsonConvert.SerializeObject(request), Encoding.UTF8, "application/json");
 
-            using (var response = await httpClient.PostAsync($"{mOptions.OrderServiceBaseUrl}/", body))
+            using (var response = await httpClient.PostAsync($"{mOptions.OrderServiceBaseUrl}/Api/Internal/Orders", body))
             {
                 return response.IsSuccessStatusCode;
             }
@@ -35,7 +36,7 @@ namespace ApiClients.Order.Http
         {
             var httpClient = mHttpClientFactory.CreateClient(nameof(OrderHttpClient));
 
-            using (var response = await httpClient.GetAsync($"{mOptions.OrderServiceBaseUrl}/"))
+            using (var response = await httpClient.GetAsync($"{mOptions.OrderServiceBaseUrl}/Api/Internal/Orders/{orderID}"))
             {
                 if (response.IsSuccessStatusCode)
                 {
@@ -51,7 +52,7 @@ namespace ApiClients.Order.Http
         {
             var httpClient = mHttpClientFactory.CreateClient(nameof(OrderHttpClient));
 
-            using (var response = await httpClient.GetAsync($"{mOptions.OrderServiceBaseUrl}/"))
+            using (var response = await httpClient.GetAsync($"{mOptions.OrderServiceBaseUrl}/Api/Internal/Orders/ByUserID/{userID}"))
             {
                 if (response.IsSuccessStatusCode)
                 {
