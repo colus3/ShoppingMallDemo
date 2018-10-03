@@ -1,4 +1,4 @@
-# MonoMicroServiceDemo
+# ShoppingMallDemo
 
 ## To run the application
 1. Run the following migrations
